@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ôn tập Giữa kì 1 - Hóa học 12 (2026-2027)</title>
+<style>
+:root{--teal:#0f766e;--teal2:#14b8a6;--navy:#164e63;--amber:#f59e0b;--bg:#eef7f5;--card:#fff;--ink:#1f2937;--muted:#64748b;--green:#15803d;--red:#dc2626;--line:#dbe7e3}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:18px;line-height:1.55}
+a{color:var(--teal)}
+.wrap{max-width:920px;margin:0 auto;padding:14px 14px 40px}
+header.top{background:linear-gradient(135deg,#0f766e,#155e75);color:#fff;border-radius:18px;padding:18px 20px;margin-bottom:14px}
+header.top h1{margin:0 0 6px;font-size:clamp(22px,4vw,30px);line-height:1.25}
+header.top p{margin:4px 0;opacity:.95;font-size:17px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 2px 10px rgba(15,118,110,.08)}
+h2{font-size:22px;margin:0 0 10px;color:var(--navy)}
+h3{font-size:19px;margin:16px 0 8px;color:var(--navy)}
+label{display:block;font-weight:600;margin:12px 0 6px}
+input[type=text],input[type=url]{width:100%;padding:13px 14px;font-size:18px;border:2px solid #cbd5e1;border-radius:12px}
+input[type=text]:focus,input[type=url]:focus{outline:none;border-color:var(--teal2)}
+.btn{display:inline-block;border:0;border-radius:12px;padding:14px 20px;font-size:18px;font-weight:700;cursor:pointer;min-height:50px}
+.btn-primary{background:var(--teal);color:#fff}
+.btn-amber{background:var(--amber);color:#1f2937}
+.btn-light{background:#e2e8f0;color:#334155}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn-row .btn{flex:1}
+.small{font-size:16px;color:var(--muted)}
+.badge{display:inline-block;background:#ccfbf1;color:#115e59;border-radius:999px;padding:4px 12px;font-size:15px;font-weight:700;margin:2px}
+.timerbar{position:sticky;top:0;z-index:20;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.timer{font-size:26px;font-weight:800;color:var(--teal);min-width:110px}
+.timer.warn{color:#d97706}.timer.danger{color:var(--red)}
+.progress{flex:1;min-width:160px;height:16px;background:#e2e8f0;border-radius:999px;overflow:hidden}
+.progress>div{height:100%;background:linear-gradient(90deg,#14b8a6,#0f766e);width:0%;transition:width .3s}
+.navgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:8px;margin:10px 0}
+.navbtn{height:48px;border-radius:11px;border:2px solid #cbd5e1;background:#fff;font-size:17px;font-weight:700;cursor:pointer}
+.navbtn.done{background:#d1fae5;border-color:#6ee7b7}
+.navbtn.partial{background:#fef3c7;border-color:#fcd34d}
+.navbtn.current{outline:3px solid var(--amber);border-color:var(--amber)}
+.qtitle{font-size:20px;font-weight:800;color:var(--navy)}
+.qtext{font-size:19px;margin:12px 0}
+.opt{display:block;width:100%;text-align:left;background:#f8fafc;border:2px solid #e2e8f0;border-radius:13px;padding:13px 15px;margin:9px 0;font-size:18px;cursor:pointer}
+.opt:hover{border-color:var(--teal2)}
+.opt.sel{background:#ccfbf1;border-color:var(--teal)}
+.dsrow{display:flex;gap:10px;align-items:flex-start;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin:10px 0}
+.dsrow p{margin:0;flex:1;font-size:18px}
+.dsbtn{padding:11px 16px;border-radius:10px;border:2px solid #cbd5e1;background:#fff;font-size:17px;font-weight:700;cursor:pointer;min-width:82px}
+.dsbtn.selT{background:#d1fae5;border-color:#22c55e}
+.dsbtn.selF{background:#fee2e2;border-color:#ef4444}
+.score-big{font-size:52px;font-weight:900;color:var(--teal);line-height:1}
+table{width:100%;border-collapse:collapse;font-size:17px}
+th,td{border-bottom:1px solid #e2e8f0;padding:9px 8px;text-align:left}
+.ok{color:var(--green);font-weight:700}.bad{color:var(--red);font-weight:700}
+.review{border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}
+.review.wrong{border-color:#fecaca;background:#fff7f7}
+.explain{background:#f0fdfa;border-left:5px solid var(--teal);border-radius:8px;padding:12px 14px;margin-top:10px;font-size:17px}
+details{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:12px;background:#f8fafc}
+details summary{font-weight:700;cursor:pointer;font-size:17px}
+@media(max-width:600px){body{font-size:17px}.wrap{padding:10px 10px 30px}.card{padding:14px}.btn-row .btn{flex:1 1 100%}.timer{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<h1>🧪 Ôn tập Giữa kì 1 — Hóa học 12</h1>
+<p>Năm học 2026–2027 • Trường THPT Võ Thị Sáu • Thời gian: <b>45 phút</b> • Tổng điểm: <b>10 điểm</b></p>
+</header>
+
+<!-- MÀN HÌNH BẮT ĐẦU -->
+<section id="startScreen" class="card">
+<h2>Chào bạn, sẵn sàng làm bài chưa?</h2>
+<p>Cấu trúc bài: <span class="badge">Phần 1: 18 câu trắc nghiệm</span> <span class="badge">Phần 2: 4 câu Đúng – Sai</span> <span class="badge">Phần 3: 6 câu trả lời ngắn</span></p>
+<p class="small">Phần 1: Lý thuyết Ester–Lipid 5 câu, Carbohydrate 5 câu; Toán Ester 4 câu, Toán Carbohydrate 4 câu. Phần 2: 1 câu Biết + 3 câu Vận dụng. Phần 3: 2 câu lý thuyết + 4 câu toán (đều mức Hiểu).</p>
+<label for="stuName">Họ và tên học sinh *</label>
+<input id="stuName" type="text" placeholder="Ví dụ: Nguyễn Văn An" autocomplete="name">
+<label for="stuClass">Lớp *</label>
+<input id="stuClass" type="text" placeholder="Ví dụ: 12A1">
+<div class="btn-row"><button class="btn btn-primary" onclick="startExam()">▶ Bắt đầu làm bài (45 phút)</button></div>
+<p class="small">Lưu ý: Bấm vào ô số câu trong thanh tiến độ để nhảy ngay tới câu đó, không cần cuộn trang. Hết 45 phút bài sẽ tự động nộp. Đáp án và giải thích chỉ hiện sau khi nộp bài.</p>
+</section>
+
+<!-- MÀN HÌNH LÀM BÀI -->
+<section id="examScreen" style="display:none">
+<div class="timerbar">
+<div><div class="small">Thời gian còn lại</div><div id="timer" class="timer">45:00</div></div>
+<div class="progress"><div id="progressFill"></div></div>
+<div><b id="progressText">0/28 câu</b><div class="small" id="answeredText">Chưa làm câu nào</div></div>
+</div>
+
+<div class="card">
+<div class="small"><b>Thanh tiến độ — bấm vào số câu để mở ngay câu đó:</b></div>
+<div><span class="small">Phần 1 (1–18)</span><div class="navgrid" id="navP1"></div></div>
+<div><span class="small">Phần 2 (1–4)</span><div class="navgrid" id="navP2"></div></div>
+<div><span class="small">Phần 3 (1–6)</span><div class="navgrid" id="navP3"></div></div>
+</div>
+
+<div class="card" id="qCard" style="margin-top:12px">
+<div id="qHead" class="qtitle"></div>
+<div id="qBody"></div>
+<div class="btn-row">
+<button class="btn btn-light" onclick="moveQ(-1)">← Câu trước</button>
+<button class="btn btn-light" onclick="moveQ(1)">Câu sau →</button>
+<button class="btn btn-amber" onclick="submitExam(false)">Nộp bài</button>
+</div>
+<p class="small" id="qHint"></p>
+</div>
+</section>
+
+<!-- MÀN HÌNH KẾT QUẢ -->
+<section id="resultScreen" style="display:none">
+<div class="card">
+<h2>🎉 Kết quả bài làm của bạn</h2>
+<p><span id="resName"></span></p>
+<div class="score-big" id="resScore"></div>
+<p id="resLevel" style="font-weight:700"></p>
+<p id="resTime"></p>
+<p id="sheetSendStatus"></p>
+<table>
+<tr><th>Phần</th><th>Kết quả</th><th>Điểm</th></tr>
+<tr><td>Phần 1 — Trắc nghiệm (18 câu)</td><td id="rP1"></td><td id="sP1"></td></tr>
+<tr><td>Phần 2 — Đúng – Sai (16 ý)</td><td id="rP2"></td><td id="sP2"></td></tr>
+<tr><td>Phần 3 — Trả lời ngắn (6 câu)</td><td id="rP3"></td><td id="sP3"></td></tr>
+</table>
+<h3>📊 Phân tích bài làm</h3>
+<div id="analysis"></div>
+<div class="btn-row">
+<button class="btn btn-primary" onclick="downloadCSV()">⬇ Tải file CSV kết quả</button>
+<button class="btn btn-light" onclick="copyResult()">📋 Sao chép kết quả</button>
+<button class="btn btn-light" onclick="location.reload()">🔄 Làm lại bài khác</button>
+</div>
+</div>
+<div class="card" style="margin-top:12px">
+<h2>📖 Xem đáp án và giải thích</h2>
+<div class="btn-row">
+<button class="btn btn-light" onclick="renderReview('all')">Tất cả các câu</button>
+<button class="btn btn-amber" onclick="renderReview('wrong')">Chỉ xem câu sai / chưa làm</button>
+</div>
+<div id="reviewBox"></div>
+</div>
+</section>
+<footer style="text-align:center;color:#64748b;font-size:16px;margin-top:18px;line-height:1.5">Sản phẩm tạo bởi Cô Nguyễn Thị Minh Thanh - THPT Võ Thị Sáu - Phường Gia Định - TP.Hồ Chí Minh</footer>
+</div>
+<script>
+// ================= DỮ LIỆU ĐỀ (biến thể mới, không trùng mã 301-304) =================
+const P1=[
+{q:"Ester X có công thức cấu tạo CH<sub>3</sub>COOCH<sub>2</sub>CH<sub>2</sub>CH<sub>3</sub>. Tên gọi của X là",o:["Methyl propionate.","Propyl acetate.","Ethyl propionate.","Propyl formate."],a:1,topic:"Lý thuyết Ester – Lipid",ex:"Phần acid là CH<sub>3</sub>COO<sup>−</sup> (acetate/ethanoate), phần alcohol là propyl (–CH<sub>2</sub>CH<sub>2</sub>CH<sub>3</sub>) nên tên là propyl acetate (propyl ethanoate). Methyl propionate là CH<sub>3</sub>CH<sub>2</sub>COOCH<sub>3</sub>, ethyl propionate là CH<sub>3</sub>CH<sub>2</sub>COOC<sub>2</sub>H<sub>5</sub>."},
+{q:"Thủy phân methyl acetate trong dung dịch NaOH, đun nóng, thu được",o:["CH<sub>3</sub>COOH và CH<sub>3</sub>OH.","CH<sub>3</sub>COONa và CH<sub>3</sub>OH.","HCOONa và C<sub>2</sub>H<sub>5</sub>OH.","CH<sub>3</sub>COONa và C<sub>2</sub>H<sub>5</sub>OH."],a:1,topic:"Lý thuyết Ester – Lipid",ex:"CH<sub>3</sub>COOCH<sub>3</sub> + NaOH → CH<sub>3</sub>COONa + CH<sub>3</sub>OH. Thủy phân trong môi trường kiềm là phản ứng xà phòng hóa, xảy ra một chiều, sản phẩm là muối carboxylate và alcohol."},
+{q:"Phát biểu nào sau đây <b>đúng</b> về ester?",o:["Ester tan tốt trong nước.","Ester có nhiệt độ sôi cao hơn alcohol có cùng số nguyên tử carbon.","Ester thường có mùi thơm, nhẹ hơn nước và ít tan trong nước.","Thủy phân ester trong môi trường kiềm là phản ứng thuận nghịch."],a:2,topic:"Lý thuyết Ester – Lipid",ex:"Ester không tạo liên kết hydrogen giữa các phân tử với nhau nên nhiệt độ sôi thấp hơn alcohol và carboxylic acid cùng số C; phân tử phân cực yếu nên ít tan trong nước, nhẹ hơn nước và thường có mùi thơm của hoa quả chín. Thủy phân trong kiềm là một chiều."},
+{q:"Chất béo nào sau đây ở trạng thái lỏng ở điều kiện thường?",o:["Tristearin.","Tripalmitin.","Triolein.","Trimyristin."],a:2,topic:"Lý thuyết Ester – Lipid",ex:"Triolein chứa 3 gốc oleate không no (C<sub>17</sub>H<sub>33</sub>COO–) nên ở dạng lỏng (dầu thực vật). Tristearin, tripalmitin và trimyristin đều chứa gốc acid béo no nên ở dạng rắn (mỡ động vật)."},
+{q:"Khi xà phòng hóa hoàn toàn tripalmitin bằng dung dịch NaOH, thu được",o:["Glycerol và sodium palmitate.","Glycerol và sodium stearate.","Ethylene glycol và sodium palmitate.","Glycerol và sodium oleate."],a:0,topic:"Lý thuyết Ester – Lipid",ex:"Tripalmitin là (C<sub>15</sub>H<sub>31</sub>COO)<sub>3</sub>C<sub>3</sub>H<sub>5</sub>. Phản ứng: (C<sub>15</sub>H<sub>31</sub>COO)<sub>3</sub>C<sub>3</sub>H<sub>5</sub> + 3NaOH → 3C<sub>15</sub>H<sub>31</sub>COONa + C<sub>3</sub>H<sub>5</sub>(OH)<sub>3</sub> (glycerol)."},
+{q:"Cho dãy các chất: glucose, fructose, saccharose, maltose, tinh bột, cellulose. Số chất thuộc loại monosaccharide là",o:["1.","2.","3.","4."],a:1,topic:"Lý thuyết Carbohydrate",ex:"Monosaccharide: glucose và fructose (2 chất). Disaccharide: saccharose, maltose (2 chất). Polysaccharide: tinh bột, cellulose (2 chất)."},
+{q:"Chất nào sau đây tạo hợp chất màu xanh tím với dung dịch iodine?",o:["Glucose.","Fructose.","Tinh bột.","Saccharose."],a:2,topic:"Lý thuyết Carbohydrate",ex:"Amylose trong tinh bột cuộn xoắn và giữ iodine trong lòng ống xoắn tạo hợp chất màu xanh tím. Đây là phản ứng đặc trưng để nhận biết tinh bột."},
+{q:"Thủy phân saccharose trong môi trường acid thu được",o:["Chỉ glucose.","Chỉ fructose.","Glucose và fructose.","2 phân tử glucose."],a:2,topic:"Lý thuyết Carbohydrate",ex:"C<sub>12</sub>H<sub>22</sub>O<sub>11</sub> + H<sub>2</sub>O → C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> (glucose) + C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> (fructose). Thủy phân maltose mới thu được 2 glucose."},
+{q:"Chất nào sau đây <b>không</b> có phản ứng tráng bạc?",o:["Glucose.","Fructose.","Maltose.","Saccharose."],a:3,topic:"Lý thuyết Carbohydrate",ex:"Saccharose không có nhóm –CHO tự do và không mở vòng thành dạng aldehyde nên không tráng bạc. Glucose, maltose có nhóm aldehyde; fructose trong môi trường kiềm của thuốc thử Tollens chuyển hóa thành glucose nên cũng tráng bạc."},
+{q:"Chất nào sau đây được dùng làm nguyên liệu sản xuất giấy và tơ nhân tạo (tơ visco, tơ acetate)?",o:["Tinh bột.","Cellulose.","Glucose.","Saccharose."],a:1,topic:"Lý thuyết Carbohydrate",ex:"Cellulose là polymer thiên nhiên, không tan trong nước, có độ bền cơ học cao nên dùng làm giấy, sợi, tơ nhân tạo. Tinh bột chủ yếu làm lương thực và nguyên liệu lên men."},
+{q:"Xà phòng hóa hoàn toàn 8,8 gam ethyl acetate bằng dung dịch NaOH dư, thu được m gam muối. Giá trị của m là",o:["8,2.","6,8.","9,8.","7,4."],a:0,topic:"Toán Ester – Lipid",ex:"<b>Công thức:</b> n<sub>ester</sub> = m/M; thủy phân 1 ester đơn chức cần 1 NaOH, tạo 1 muối.<br><b>Bước 1:</b> n<sub>CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub></sub> = 8,8/88 = 0,1 mol.<br><b>Bước 2:</b> CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + NaOH → CH<sub>3</sub>COONa + C<sub>2</sub>H<sub>5</sub>OH, nên n<sub>muối</sub> = 0,1 mol.<br><b>Bước 3:</b> m<sub>CH<sub>3</sub>COONa</sub> = 0,1 × 82 = <b>8,2 gam</b>."},
+{q:"Xà phòng hóa hoàn toàn 3,7 gam ester no, đơn chức, mạch hở X cần vừa đủ 50 mL dung dịch NaOH 1M. Công thức phân tử của X là",o:["C<sub>2</sub>H<sub>4</sub>O<sub>2</sub>.","C<sub>3</sub>H<sub>6</sub>O<sub>2</sub>.","C<sub>4</sub>H<sub>8</sub>O<sub>2</sub>.","C<sub>5</sub>H<sub>10</sub>O<sub>2</sub>."],a:1,topic:"Toán Ester – Lipid",ex:"<b>Công thức:</b> ester no, đơn chức, mạch hở: C<sub>n</sub>H<sub>2n</sub>O<sub>2</sub>; n<sub>NaOH</sub> = C×V.<br><b>Bước 1:</b> n<sub>NaOH</sub> = 0,05 × 1 = 0,05 mol = n<sub>X</sub>.<br><b>Bước 2:</b> M<sub>X</sub> = 3,7/0,05 = 74.<br><b>Bước 3:</b> 14n + 32 = 74 → n = 3. Vậy X là <b>C<sub>3</sub>H<sub>6</sub>O<sub>2</sub></b>."},
+{q:"Đun nóng 6 gam acetic acid với lượng dư ethyl alcohol (xúc tác H<sub>2</sub>SO<sub>4</sub> đặc), thu được 7,04 gam ethyl acetate. Hiệu suất của phản ứng ester hóa là",o:["60%.","70%.","80%.","90%."],a:2,topic:"Toán Ester – Lipid",ex:"<b>Công thức:</b> H% = (m<sub>thực tế</sub> / m<sub>lý thuyết</sub>) × 100%.<br><b>Bước 1:</b> n<sub>CH<sub>3</sub>COOH</sub> = 6/60 = 0,1 mol.<br><b>Bước 2:</b> m<sub>ester lý thuyết</sub> = 0,1 × 88 = 8,8 gam.<br><b>Bước 3:</b> H% = 7,04/8,8 × 100% = <b>80%</b>."},
+{q:"Thủy phân hoàn toàn m gam tristearin bằng dung dịch NaOH, thu được 4,6 gam glycerol và 45,9 gam sodium stearate. Giá trị của m là",o:["44,5.","50,5.","38,5.","47,5."],a:0,topic:"Toán Ester – Lipid",ex:"<b>Công thức:</b> Bảo toàn khối lượng: m<sub>chất béo</sub> + m<sub>NaOH</sub> = m<sub>muối</sub> + m<sub>glycerol</sub>.<br><b>Bước 1:</b> n<sub>glycerol</sub> = 4,6/92 = 0,05 mol → n<sub>NaOH</sub> = 3 × 0,05 = 0,15 mol → m<sub>NaOH</sub> = 6 gam.<br><b>Bước 2:</b> m + 6 = 45,9 + 4,6 → m = <b>44,5 gam</b> (đúng bằng 0,05 × 890)."},
+{q:"Cho 9 gam glucose tác dụng với lượng dư dung dịch AgNO<sub>3</sub> trong NH<sub>3</sub>, thu được m gam Ag. Giá trị của m là",o:["5,4.","10,8.","21,6.","16,2."],a:1,topic:"Toán Carbohydrate",ex:"<b>Công thức tráng bạc:</b> 1 glucose → 2 Ag.<br><b>Bước 1:</b> n<sub>glucose</sub> = 9/180 = 0,05 mol.<br><b>Bước 2:</b> n<sub>Ag</sub> = 2 × 0,05 = 0,1 mol.<br><b>Bước 3:</b> m<sub>Ag</sub> = 0,1 × 108 = <b>10,8 gam</b>."},
+{q:"Cho 18 gam glucose lên men rượu với hiệu suất 80%, thu được m gam ethanol. Giá trị của m là",o:["4,6.","7,36.","9,2.","18,4."],a:1,topic:"Toán Carbohydrate",ex:"<b>Công thức:</b> C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> → 2C<sub>2</sub>H<sub>5</sub>OH + 2CO<sub>2</sub>; m<sub>thực tế</sub> = m<sub>lý thuyết</sub> × H%.<br><b>Bước 1:</b> n<sub>glucose</sub> = 18/180 = 0,1 mol → n<sub>ethanol lý thuyết</sub> = 0,2 mol → 9,2 gam.<br><b>Bước 2:</b> m<sub>thực tế</sub> = 9,2 × 80% = <b>7,36 gam</b>."},
+{q:"Thủy phân hoàn toàn 68,4 gam saccharose trong môi trường acid, thu được hỗn hợp X. Cho X phản ứng hết với lượng dư dung dịch AgNO<sub>3</sub> trong NH<sub>3</sub>, thu được m gam Ag. Giá trị của m là",o:["43,2.","86,4.","64,8.","21,6."],a:1,topic:"Toán Carbohydrate",ex:"<b>Công thức:</b> 1 saccharose → 1 glucose + 1 fructose; mỗi monosaccharide tráng bạc cho 2 Ag, nên 1 saccharose → 4 Ag.<br><b>Bước 1:</b> n<sub>saccharose</sub> = 68,4/342 = 0,2 mol.<br><b>Bước 2:</b> n<sub>Ag</sub> = 4 × 0,2 = 0,8 mol.<br><b>Bước 3:</b> m<sub>Ag</sub> = 0,8 × 108 = <b>86,4 gam</b>."},
+{q:"Để điều chế 29,7 kg cellulose trinitrate, cần dùng dung dịch chứa m kg nitric acid (hiệu suất phản ứng đạt 90%). Giá trị của m là",o:["18,9.","21,0.","23,1.","28,35."],a:1,topic:"Toán Carbohydrate",ex:"<b>Công thức:</b> [C<sub>6</sub>H<sub>7</sub>O<sub>2</sub>(OH)<sub>3</sub>]<sub>n</sub> + 3nHNO<sub>3</sub> → [C<sub>6</sub>H<sub>7</sub>O<sub>2</sub>(ONO<sub>2</sub>)<sub>3</sub>]<sub>n</sub> + 3nH<sub>2</sub>O; M<sub>trinitrate đơn vị</sub> = 297.<br><b>Bước 1:</b> n<sub>đơn vị trinitrate</sub> = 29700/297 = 100 mol → n<sub>HNO<sub>3</sub> lý thuyết</sub> = 300 mol → 18,9 kg.<br><b>Bước 2:</b> Do hiệu suất 90%: m = 18,9/0,9 = <b>21,0 kg</b>."}
+];
+const P2=[
+{stem:"Cho các phát biểu về ester và chất béo:",items:[["Các ester thường nhẹ hơn nước và ít tan trong nước.",true],["Chất béo là triester của glycerol với các acid béo.",true],["Thủy phân ester trong môi trường acid là phản ứng một chiều.",false],["Triolein ở điều kiện thường tồn tại ở trạng thái rắn.",false]],topic:"Đúng – Sai: Ester – Lipid",ex:"a) Đúng: ester nhẹ hơn nước, ít tan. b) Đúng: chất béo = triester của glycerol (C<sub>3</sub>H<sub>5</sub>(OH)<sub>3</sub>) với acid béo. c) Sai: thủy phân trong acid là thuận nghịch, chỉ trong kiềm mới một chiều. d) Sai: triolein chứa gốc không no nên lỏng ở điều kiện thường."},
+{stem:"Một gia đình giặt quần áo bằng xà phòng trong nước cứng thấy quần áo nhanh bị ố và xà phòng hao nhiều. Cho các phát biểu:",items:[["Xà phòng có cấu tạo gồm đầu ưa nước và đuôi kị nước; đuôi kị nước bám vào vết dầu mỡ.",true],["Trong nước cứng, xà phòng tạo kết tủa với ion Ca<sup>2+</sup>, Mg<sup>2+</sup> nên giảm tác dụng tẩy rửa.",true],["Chất giặt rửa tổng hợp cũng tạo kết tủa với Ca<sup>2+</sup>, Mg<sup>2+</sup> nên mất tác dụng trong nước cứng như xà phòng.",false],["Có thể tận dụng dầu ăn thải để điều chế xà phòng bằng phản ứng xà phòng hóa.",true]],topic:"Đúng – Sai: Xà phòng",ex:"a) Đúng: đó là cơ chế tẩy rửa của xà phòng. b) Đúng: muối của acid béo với Ca<sup>2+</sup>, Mg<sup>2+</sup> khó tan, bám vào vải. c) Sai: muối alkyl sulfate của chất giặt rửa tổng hợp tan tốt trong nước cứng nên vẫn giặt tốt. d) Đúng: dầu ăn thải là chất béo, xà phòng hóa với kiềm tạo xà phòng."},
+{stem:"Cho các phát biểu về một số carbohydrate:",items:[["Glucose có phản ứng tráng bạc.",true],["Saccharose có phản ứng tráng bạc.",false],["Tinh bột tạo hợp chất màu xanh tím với dung dịch iodine.",true],["Cellulose tan tốt trong nước.",false]],topic:"Đúng – Sai: Carbohydrate",ex:"a) Đúng: glucose có nhóm –CHO. b) Sai: saccharose không có –CHO tự do. c) Đúng: amylose + iodine → xanh tím. d) Sai: cellulose không tan trong nước, chỉ tan trong nước Schweizer."},
+{stem:"Thí nghiệm: Cho hồ tinh bột vào ống nghiệm, thêm HCl loãng, đun cách thủy, để nguội, trung hòa bằng NaHCO<sub>3</sub>, sau đó cho Cu(OH)<sub>2</sub> vào và đun nóng. Cho các phát biểu:",items:[["Tinh bột ban đầu không tạo kết tủa đỏ gạch với Cu(OH)<sub>2</sub> khi đun nóng.",true],["Sau khi đun với HCl, tinh bột đã thủy phân thành glucose.",true],["Glucose sinh ra phản ứng với Cu(OH)<sub>2</sub> khi đun nóng tạo kết tủa đỏ gạch Cu<sub>2</sub>O.",true],["Nếu chỉ đun hồ tinh bột với nước (không có HCl), tinh bột cũng thủy phân hoàn toàn thành glucose trong thời gian thí nghiệm.",false]],topic:"Đúng – Sai: Thủy phân tinh bột",ex:"a) Đúng: tinh bột không có tính khử. b) Đúng: (C<sub>6</sub>H<sub>10</sub>O<sub>5</sub>)<sub>n</sub> + nH<sub>2</sub>O → nC<sub>6</sub>H<sub>12</sub>O<sub>6</sub> (xúc tác acid, đun nóng). c) Đúng: glucose khử Cu(OH)<sub>2</sub> thành Cu<sub>2</sub>O đỏ gạch. d) Sai: không có acid xúc tác và đun ngắn thì tinh bột không thủy phân hoàn toàn."}
+];
+const P3=[
+{q:"Cho dãy các chất: methyl acetate, tripalmitin, glucose, saccharose, cellulose, fructose. Số chất thuộc loại ester là bao nhiêu?",ans:["2"],unit:"chất",topic:"Trả lời ngắn: Lý thuyết",ex:"<b>Giải thích chi tiết:</b> Ester là hợp chất có nhóm –COO–. Trong dãy, methyl acetate (CH<sub>3</sub>COOCH<sub>3</sub>) và tripalmitin (triester của glycerol) là ester. Glucose, fructose là monosaccharide; saccharose là disaccharide; cellulose là polysaccharide. Vậy đáp án là <b>2</b>."},
+{q:"Cho các phát biểu: a) Glucose và fructose là đồng phân của nhau, cùng công thức C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>. b) Maltose và saccharose đều là disaccharide. c) Tinh bột và cellulose đều là polysaccharide. d) Ở dạng mạch hở, fructose có nhóm chức aldehyde. Có bao nhiêu phát biểu đúng?",ans:["3"],unit:"phát biểu",topic:"Trả lời ngắn: Lý thuyết",ex:"<b>Giải thích chi tiết:</b> a) Đúng: cùng C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>, khác nhóm chức. b) Đúng: đều gồm 2 đơn vị monosaccharide. c) Đúng: đều là (C<sub>6</sub>H<sub>10</sub>O<sub>5</sub>)<sub>n</sub>. d) Sai: fructose mạch hở có nhóm ketone, không phải aldehyde. Vậy có <b>3</b> phát biểu đúng."},
+{q:"Thủy phân hoàn toàn 89 gam tristearin bằng dung dịch NaOH dư, thu được bao nhiêu gam glycerol?",ans:["9.2","9,2"],unit:"gam",topic:"Trả lời ngắn: Toán chất béo",ex:"<b>Công thức:</b> 1 tristearin → 1 glycerol.<br><b>Bước 1:</b> M<sub>tristearin</sub> = 890, n = 89/890 = 0,1 mol.<br><b>Bước 2:</b> n<sub>glycerol</sub> = 0,1 mol.<br><b>Bước 3:</b> m<sub>glycerol</sub> = 0,1 × 92 = <b>9,2 gam</b>."},
+{q:"Cho 27 gam glucose phản ứng hoàn toàn với lượng dư dung dịch AgNO<sub>3</sub> trong NH<sub>3</sub>, thu được bao nhiêu gam Ag?",ans:["32.4","32,4"],unit:"gam",topic:"Trả lời ngắn: Toán tráng bạc",ex:"<b>Công thức:</b> 1 glucose → 2 Ag.<br><b>Bước 1:</b> n<sub>glucose</sub> = 27/180 = 0,15 mol.<br><b>Bước 2:</b> n<sub>Ag</sub> = 0,3 mol.<br><b>Bước 3:</b> m<sub>Ag</sub> = 0,3 × 108 = <b>32,4 gam</b>."},
+{q:"Lên men 36 gam glucose với hiệu suất 75%, thu được V lít khí CO<sub>2</sub> (đkc). Giá trị của V là bao nhiêu? (Làm tròn đến hàng phần mười.)",ans:["7.4","7,4"],unit:"lít",topic:"Trả lời ngắn: Toán lên men",ex:"<b>Công thức:</b> C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> → 2CO<sub>2</sub> + 2C<sub>2</sub>H<sub>5</sub>OH; V = n × 24,79 (đkc).<br><b>Bước 1:</b> n<sub>glucose</sub> = 36/180 = 0,2 mol → n<sub>CO<sub>2</sub> lý thuyết</sub> = 0,4 mol.<br><b>Bước 2:</b> n<sub>CO<sub>2</sub> thực tế</sub> = 0,4 × 75% = 0,3 mol.<br><b>Bước 3:</b> V = 0,3 × 24,79 = 7,437 ≈ <b>7,4 lít</b>."},
+{q:"Lên men 45 gam glucose với hiệu suất 80%, thu được ethanol. Pha toàn bộ ethanol thành rượu 46°. Thể tích rượu thu được là bao nhiêu mL? (Khối lượng riêng của ethanol là 0,8 g/mL.)",ans:["50"],unit:"mL",topic:"Trả lời ngắn: Toán độ rượu",ex:"<b>Công thức:</b> Độ rượu = V<sub>ethanol</sub> / V<sub>rượu</sub> × 100; V = m/D.<br><b>Bước 1:</b> n<sub>glucose</sub> = 45/180 = 0,25 mol → n<sub>ethanol lý thuyết</sub> = 0,5 mol → 23 gam.<br><b>Bước 2:</b> m<sub>ethanol thực tế</sub> = 23 × 80% = 18,4 gam → V<sub>ethanol</sub> = 18,4/0,8 = 23 mL.<br><b>Bước 3:</b> V<sub>rượu</sub> = 23/46% = <b>50 mL</b>."}
+];
+const LETTERS=["A","B","C","D"];
+// ================= LOGIC =================
+let stuName="",stuClass="",sheetUrl="";
+const DEFAULT_SHEET_URL="https://script.google.com/macros/s/AKfycbyz3LMi3wWQQrtiMUpFhvmxMH3EUiZFn4zYIwOnPgMslGTRVciWjvqa_iLHQ55oqWOmtw/exec";
+let cur=0, timerInt=null, remaining=45*60, startTime=null, submitted=false;
+let ansP1=Array(18).fill(null), ansP2=Array.from({length:4},()=>Array(4).fill(null)), ansP3=Array(6).fill("");
+let qTime={}, qShownAt=null, lastResult=null;
+function fmtTime(s){s=Math.max(0,Math.round(s));return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");}
+function getSheetUrl(){const p=new URLSearchParams(location.search).get("gs"); if(p){sheetUrl=p; localStorage.setItem("gk1_hoa12_sheet_url",p);} else {sheetUrl=localStorage.getItem("gk1_hoa12_sheet_url")||DEFAULT_SHEET_URL;} return sheetUrl;}
+function updateSheetStatus(){getSheetUrl();}
+updateSheetStatus();
+function startExam(){
+  stuName=document.getElementById("stuName").value.trim();
+  stuClass=document.getElementById("stuClass").value.trim();
+  const sheetInput=document.getElementById("sheetUrl");
+  if(sheetInput && sheetInput.value.trim()){sheetUrl=sheetInput.value.trim();}
+  else {sheetUrl=getSheetUrl();}
+  if(!stuName||!stuClass){alert("Bạn nhập Họ tên và Lớp trước khi bắt đầu nhé.");return;}
+  if(sheetUrl) localStorage.setItem("gk1_hoa12_sheet_url",sheetUrl);
+  document.getElementById("startScreen").style.display="none";
+  document.getElementById("examScreen").style.display="block";
+  startTime=Date.now(); remaining=45*60;
+  buildNav(); showQuestion(0); updateProgress();
+  timerInt=setInterval(()=>{
+    remaining--;
+    const t=document.getElementById("timer"); t.textContent=fmtTime(remaining);
+    t.className="timer"+(remaining<=300?" danger":remaining<=600?" warn":"");
+    if(remaining<=0){clearInterval(timerInt); alert("Hết giờ! Bài sẽ tự động nộp."); submitExam(true);}
+  },1000);
+}
+function buildNav(){
+  const p1=document.getElementById("navP1"), p2=document.getElementById("navP2"), p3=document.getElementById("navP3");
+  p1.innerHTML=""; p2.innerHTML=""; p3.innerHTML="";
+  for(let i=0;i<18;i++){const b=document.createElement("button"); b.className="navbtn"; b.textContent=i+1; b.onclick=()=>showQuestion(i); p1.appendChild(b);}
+  for(let i=0;i<4;i++){const b=document.createElement("button"); b.className="navbtn"; b.textContent=i+1; b.onclick=()=>showQuestion(18+i); p2.appendChild(b);}
+  for(let i=0;i<6;i++){const b=document.createElement("button"); b.className="navbtn"; b.textContent=i+1; b.onclick=()=>showQuestion(22+i); p3.appendChild(b);}
+}
+function navState(){
+  const all=[...document.querySelectorAll("#navP1 .navbtn"),...document.querySelectorAll("#navP2 .navbtn"),...document.querySelectorAll("#navP3 .navbtn")];
+  all.forEach((b,idx)=>{
+    b.classList.remove("done","partial","current");
+    let st="empty";
+    if(idx<18) st=ansP1[idx]!==null?"done":"empty";
+    else if(idx<22){const a=ansP2[idx-18]; const n=a.filter(x=>x!==null).length; st=n===4?"done":n>0?"partial":"empty";}
+    else st=ansP3[idx-22].trim()!==""?"done":"empty";
+    if(st!=="empty") b.classList.add(st);
+    if(idx===cur) b.classList.add("current");
+  });
+}
+function answeredCount(){
+  let n=0;
+  ansP1.forEach(x=>{if(x!==null)n++;});
+  ansP2.forEach(a=>{if(a.every(x=>x!==null))n++;});
+  ansP3.forEach(x=>{if(x.trim()!=="")n++;});
+  return n;
+}
+function updateProgress(){
+  const n=answeredCount();
+  document.getElementById("progressFill").style.width=(n/28*100)+"%";
+  document.getElementById("progressText").textContent=n+"/28 câu";
+  document.getElementById("answeredText").textContent=n===0?"Chưa làm câu nào":n===28?"Đã làm đủ 28 câu":"Còn "+(28-n)+" câu chưa làm";
+  navState();
+}
+function recordTime(){
+  if(qShownAt!==null && cur!==null){
+    const key=cur; qTime[key]=(qTime[key]||0)+((Date.now()-qShownAt)/1000);
+  }
+}
+function showQuestion(i){
+  recordTime(); cur=i; qShownAt=Date.now();
+  const head=document.getElementById("qHead"), body=document.getElementById("qBody"), hint=document.getElementById("qHint");
+  if(i<18){
+    const q=P1[i];
+    head.textContent="Phần 1 — Câu "+(i+1)+" / 18  •  "+q.topic;
+    let html='<div class="qtext">'+q.q+'</div>';
+    q.o.forEach((op,oi)=>{html+='<button class="opt'+(ansP1[i]===oi?' sel':'')+'" onclick="setP1('+i+','+oi+')"><b>'+LETTERS[oi]+'.</b> '+op+'</button>';});
+    body.innerHTML=html; hint.textContent="Mỗi câu đúng được 0,25 điểm. Bấm lại phương án khác để đổi đáp án.";
+  } else if(i<22){
+    const q=P2[i-18];
+    head.textContent="Phần 2 — Câu "+(i-17)+" / 4  •  "+q.topic;
+    let html='<div class="qtext">'+q.stem+'</div>';
+    q.items.forEach((it,ii)=>{
+      html+='<div class="dsrow"><p><b>'+'abcd'[ii]+'.</b> '+it[0]+'</p>'
+      +'<button class="dsbtn'+(ansP2[i-18][ii]===true?' selT':'')+'" onclick="setP2('+(i-18)+','+ii+',true)">Đúng</button>'
+      +'<button class="dsbtn'+(ansP2[i-18][ii]===false?' selF':'')+'" onclick="setP2('+(i-18)+','+ii+',false)">Sai</button></div>';
+    });
+    body.innerHTML=html; hint.textContent="Mỗi ý đúng được 0,25 điểm (mỗi câu 1,0 điểm). Cần chọn đủ cả 4 ý a, b, c, d.";
+  } else {
+    const q=P3[i-22];
+    head.textContent="Phần 3 — Câu "+(i-21)+" / 6  •  "+q.topic;
+    body.innerHTML='<div class="qtext">'+q.q+'</div><label>Đáp án của bạn (chỉ nhập số):</label><input type="text" id="p3input" value="'+ansP3[i-22].replace(/"/g,'')+'" placeholder="Ví dụ: 9,2" oninput="setP3('+(i-22)+',this.value)">';
+    hint.textContent="Mỗi câu đúng được 0,25 điểm. Nhập số, dùng dấu phẩy hoặc dấu chấm đều được (ví dụ 9,2).";
+    setTimeout(()=>{const el=document.getElementById("p3input"); if(el) el.focus();},50);
+  }
+  updateProgress();
+  const qc=document.getElementById("qCard"); if(qc) qc.scrollIntoView({block:"start"});
+}
+function setP1(i,oi){ansP1[i]=oi; showQuestion(i);}
+function setP2(ci,ii,val){ansP2[ci][ii]=val; showQuestion(18+ci);}
+function setP3(i,val){ansP3[i]=val; updateProgress();}
+function moveQ(d){const n=Math.min(27,Math.max(0,cur+d)); showQuestion(n);}
+function normNum(s){return String(s).trim().replace(",",".").replace(/\s+/g,"");}
+function grade(){
+  let p1c=0,p2c=0,p3c=0,rows=[];
+  P1.forEach((q,i)=>{const ok=ansP1[i]===q.a; if(ok)p1c++; rows.push({part:"Phần 1",question:"Câu "+(i+1),student:ansP1[i]===null?"(chưa làm)":LETTERS[ansP1[i]],correct:LETTERS[q.a],result:ok?"Đúng":"Sai",point:ok?0.25:0});});
+  P2.forEach((q,ci)=>{q.items.forEach((it,ii)=>{const ok=ansP2[ci][ii]===it[1]; if(ok)p2c++; rows.push({part:"Phần 2",question:"Câu "+(ci+1)+""+"abcd"[ii],student:ansP2[ci][ii]===null?"(chưa làm)":(ansP2[ci][ii]?"Đúng":"Sai"),correct:it[1]?"Đúng":"Sai",result:ok?"Đúng":"Sai",point:ok?0.25:0});});});
+  P3.forEach((q,i)=>{const ok=q.ans.includes(normNum(ansP3[i])); if(ok)p3c++; rows.push({part:"Phần 3",question:"Câu "+(i+1),student:ansP3[i].trim()===""?"(chưa làm)":ansP3[i],correct:q.ans[0],result:ok?"Đúng":"Sai",point:ok?0.25:0});});
+  const score=Math.round((p1c*0.25+p2c*0.25+p3c*0.25)*100)/100;
+  return {p1c,p2c,p3c,score,rows};
+}
+function topicStats(g){
+  const topics=[];
+  const add=(name,correct,total)=>topics.push({name,correct,total,pct:total?Math.round(correct/total*100):0});
+  let c=0; for(let i=0;i<5;i++) if(ansP1[i]===P1[i].a)c++; add("Lý thuyết Ester – Lipid",c,5);
+  c=0; for(let i=5;i<10;i++) if(ansP1[i]===P1[i].a)c++; add("Lý thuyết Carbohydrate",c,5);
+  c=0; for(let i=10;i<14;i++) if(ansP1[i]===P1[i].a)c++; add("Toán Ester – Lipid",c,4);
+  c=0; for(let i=14;i<18;i++) if(ansP1[i]===P1[i].a)c++; add("Toán Carbohydrate",c,4);
+  add("Trắc nghiệm Đúng – Sai",g.p2c,16);
+  let lt=0; P3.slice(0,2).forEach((q,i)=>{if(q.ans.includes(normNum(ansP3[i])))lt++;}); add("Trả lời ngắn: Lý thuyết",lt,2);
+  let tt=0; P3.slice(2).forEach((q,j)=>{if(q.ans.includes(normNum(ansP3[2+j])))tt++;}); add("Trả lời ngắn: Toán",tt,4);
+  return topics;
+}
+function submitExam(auto){
+  if(submitted) return;
+  const un=28-answeredCount();
+  if(!auto && un>0 && !confirm("Bạn còn "+un+" câu chưa làm. Vẫn nộp bài ngay bây giờ?")) return;
+  recordTime(); if(timerInt) clearInterval(timerInt); submitted=true;
+  const durationSec=Math.round((Date.now()-startTime)/1000);
+  const g=grade(); const topics=topicStats(g);
+  const strengths=topics.filter(t=>t.pct>=75).map(t=>t.name+" ("+t.pct+"%)");
+  const toReview=topics.filter(t=>t.pct<60).map(t=>t.name+" ("+t.pct+"%)");
+  const submittedAt=new Date().toLocaleString("vi-VN",{timeZone:"Asia/Ho_Chi_Minh"});
+  lastResult={name:stuName,className:stuClass,submittedAt,durationSec,durationText:fmtTime(durationSec),score:g.score,p1Correct:g.p1c,p2Correct:g.p2c,p3Correct:g.p3c,topics,rows:g.rows,
+    detailP1:P1.map((q,i)=>ansP1[i]===null?"-":(ansP1[i]===q.a?"Đ":"S")),
+    detailP2:P2.map((q,ci)=>q.items.map((it,ii)=>ansP2[ci][ii]===null?"-":(ansP2[ci][ii]===it[1]?"Đ":"S")).join(",")),
+    detailP3:P3.map((q,i)=>q.ans.includes(normNum(ansP3[i]))?"Đ":"S"),
+    strengths,toReview};
+  document.getElementById("examScreen").style.display="none";
+  document.getElementById("resultScreen").style.display="block";
+  document.getElementById("resName").textContent=stuName+" — Lớp "+stuClass+" • Nộp lúc "+submittedAt;
+  document.getElementById("resScore").textContent=g.score.toFixed(2)+" / 10";
+  document.getElementById("resLevel").textContent=g.score>=8?"🌟 Rất tốt! Bạn đã nắm vững kiến thức giữa kì 1.":g.score>=6.5?"👍 Khá tốt! Chỉ cần rà lại vài chỗ yếu bên dưới.":g.score>=5?"📚 Đạt yêu cầu, nhưng cần ôn thêm các phần yếu bên dưới trước ngày thi.":"💪 Chưa đạt — đừng nản, ôn lại các phần yếu bên dưới rồi làm lại một lượt nữa nhé.";
+  document.getElementById("resTime").textContent="Thời gian làm bài: "+fmtTime(durationSec)+" (giới hạn 45:00) • Trung bình "+Math.round(durationSec/28)+" giây/câu • Số câu chưa làm: "+un;
+  document.getElementById("rP1").textContent=g.p1c+"/18 câu đúng"; document.getElementById("sP1").textContent=(g.p1c*0.25).toFixed(2)+" điểm";
+  document.getElementById("rP2").textContent=g.p2c+"/16 ý đúng"; document.getElementById("sP2").textContent=(g.p2c*0.25).toFixed(2)+" điểm";
+  document.getElementById("rP3").textContent=g.p3c+"/6 câu đúng"; document.getElementById("sP3").textContent=(g.p3c*0.25).toFixed(2)+" điểm";
+  // Phân tích
+  let rushed=0; lastResult.rows.forEach((r,idx)=>{let key=idx<18?idx:(idx<34?18+Math.floor((idx-18)/4):22+(idx-34)); if(r.result==="Sai" && (qTime[key]||0)<20) rushed++;});
+  let html="<table><tr><th>Nội dung</th><th>Đúng</th><th>Đánh giá</th></tr>";
+  topics.forEach(t=>{html+="<tr><td>"+t.name+"</td><td>"+t.correct+"/"+t.total+" ("+t.pct+"%)</td><td>"+(t.pct>=75?"✅ Tốt":t.pct>=60?"🟡 Tạm ổn":"🔴 Cần ôn thêm")+"</td></tr>";});
+  html+="</table>";
+  html+="<p><b>✅ Ưu điểm:</b> "+(strengths.length?strengths.join("; "):"Chưa có phần nào đạt từ 75% — hãy bắt đầu từ phần bạn gần đúng nhất.")+"</p>";
+  html+="<p><b>📌 Cần ôn tập thêm:</b> "+(toReview.length?toReview.join("; "):"Không có phần nào dưới 60% — bạn chỉ cần rà lại câu sai lẻ tẻ.")+"</p>";
+  if(durationSec<1200) html+="<p><b>⏱️ Thời gian:</b> Bạn làm bài trong "+fmtTime(durationSec)+", khá nhanh so với 45 phút. "+(g.score<8?"Có "+rushed+" câu sai mà bạn chỉ dành dưới 20 giây — lần sau hãy đọc kĩ đề, tính lại một lượt với các câu toán trước khi chọn đáp án, đừng vội nộp bài khi còn thời gian.":"Tuy làm nhanh nhưng điểm vẫn cao — bạn có thể dùng thời gian dư để kiểm tra lại câu toán và câu Đúng – Sai.")+"</p>";
+  else if(durationSec>=2400) html+="<p><b>⏱️ Thời gian:</b> Bạn dùng gần hết 45 phút — tốt vì đã tận dụng thời gian, nhưng khi thi thật hãy chừa khoảng 5 phút cuối để rà lại đáp án Phần 3 (dễ sai do nhập số) và các ý Đúng – Sai.</p>";
+  else html+="<p><b>⏱️ Thời gian:</b> Bạn phân bổ thời gian hợp lý ("+fmtTime(durationSec)+"). Hãy giữ nhịp này khi thi thật: làm chắc Phần 1 trước, rồi dành thời gian cho Phần 2 và Phần 3.</p>";
+  if(un>0) html+="<p><b>⚠️ Câu chưa làm:</b> "+un+" câu — khi thi thật, câu nào bí cũng nên chọn/điền đáp án tốt nhất có thể, đừng để trống vì không bị trừ điểm.</p>";
+  document.getElementById("analysis").innerHTML=html;
+  renderReview("all");
+  sendToSheet();
+  window.scrollTo({top:0});
+}
+function sendToSheet(){
+  const el=document.getElementById("sheetSendStatus");
+  const u=getSheetUrl();
+  if(!u){el.innerHTML="⚠️ Chưa cấu hình link Google Sheet nên kết quả chưa gửi tự động. Bạn bấm <b>Tải file CSV</b> để lưu và đưa vào Sheet."; return;}
+  el.innerHTML="⏳ Đang gửi kết quả lên Google Sheet...";
+  try{
+    fetch(u,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(lastResult)})
+    .then(()=>{el.innerHTML="✅ Đã gửi kết quả lên Google Sheet. Bạn mở Sheet sau vài giây để kiểm tra (sheet KetQua và ChiTiet). Nếu chưa thấy, dùng nút Tải CSV làm dự phòng.";})
+    .catch(()=>{el.innerHTML="❌ Không gửi được lên Google Sheet (sai link hoặc chưa cấp quyền Anyone). Bạn dùng nút Tải CSV để lưu kết quả.";});
+  }catch(e){el.innerHTML="❌ Không gửi được lên Google Sheet. Bạn dùng nút Tải CSV để lưu kết quả.";}
+}
+function renderReview(filter){
+  const box=document.getElementById("reviewBox"); if(!lastResult) return;
+  let html="";
+  P1.forEach((q,i)=>{const ok=ansP1[i]===q.a; if(filter==="wrong"&&ok) return;
+    html+='<div class="review'+(ok?"":" wrong")+'><b>Phần 1 — Câu '+(i+1)+'.</b> '+q.q+'<br>'
+    +'Đáp án của bạn: <b>'+(ansP1[i]===null?"(chưa làm)":LETTERS[ansP1[i]])+'</b> • Đáp án đúng: <b>'+LETTERS[q.a]+'</b> — '+(ok?'<span class="ok">✅ Đúng (+0,25)</span>':'<span class="bad">❌ Sai</span>')
+    +'<div>'+q.o.map((op,oi)=>'<div>'+LETTERS[oi]+'. '+op+(oi===q.a?' <b>← đáp án đúng</b>':'')+'</div>').join('')+'</div>'
+    +'<div class="explain">'+q.ex+'</div></div>';});
+  P2.forEach((q,ci)=>{const allOk=q.items.every((it,ii)=>ansP2[ci][ii]===it[1]); if(filter==="wrong"&&allOk) return;
+    html+='<div class="review'+(allOk?"":" wrong")+'><b>Phần 2 — Câu '+(ci+1)+'.</b> '+q.stem;
+    q.items.forEach((it,ii)=>{const ok=ansP2[ci][ii]===it[1]; html+='<div>'+'abcd'[ii]+'. '+it[0]+' — Bạn chọn: <b>'+(ansP2[ci][ii]===null?"(chưa chọn)":ansP2[ci][ii]?"Đúng":"Sai")+'</b> • Đúng là: <b>'+(it[1]?"Đúng":"Sai")+'</b> '+(ok?'<span class="ok">✅</span>':'<span class="bad">❌</span>')+'</div>';});
+    html+='<div class="explain">'+q.ex+'</div></div>';});
+  P3.forEach((q,i)=>{const ok=q.ans.includes(normNum(ansP3[i])); if(filter==="wrong"&&ok) return;
+    html+='<div class="review'+(ok?"":" wrong")+'><b>Phần 3 — Câu '+(i+1)+'.</b> '+q.q+'<br>'
+    +'Đáp án của bạn: <b>'+(ansP3[i].trim()===""?"(chưa làm)":ansP3[i])+'</b> • Đáp án đúng: <b>'+q.ans[0]+' '+q.unit+'</b> — '+(ok?'<span class="ok">✅ Đúng (+0,25)</span>':'<span class="bad">❌ Sai</span>')
+    +'<div class="explain">'+q.ex+'</div></div>';});
+  box.innerHTML=html||"<p>Tất cả các câu đều đúng — tuyệt vời! 🎉</p>";
+}
+function downloadCSV(){
+  if(!lastResult) return;
+  const esc=s=>'"'+String(s).replace(/"/g,'""')+'"';
+  let csv="Ho ten,Lop,Thoi gian nop,Thoi gian lam (giay),Tong diem,P1 dung,P2 y dung,P3 dung\n";
+  csv+=[esc(lastResult.name),esc(lastResult.className),esc(lastResult.submittedAt),lastResult.durationSec,lastResult.score,lastResult.p1Correct,lastResult.p2Correct,lastResult.p3Correct].join(",")+"\n\n";
+  csv+="Phan,Cau,Dap an hoc sinh,Dap an dung,Ket qua,Diem\n";
+  lastResult.rows.forEach(r=>{csv+=[esc(r.part),esc(r.question),esc(r.student),esc(r.correct),esc(r.result),r.point].join(",")+"\n";});
+  const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="Ket-qua-on-tap-GK1-Hoa12-"+lastResult.name.replace(/\s+/g,"-")+".csv"; a.click();
+}
+function copyResult(){
+  if(!lastResult) return;
+  const t="Kết quả ôn tập GK1 Hóa 12: "+lastResult.name+" ("+lastResult.className+") — "+lastResult.score.toFixed(2)+"/10 • Thời gian "+lastResult.durationText+" • P1 "+lastResult.p1Correct+"/18, P2 "+lastResult.p2Correct+"/16 ý, P3 "+lastResult.p3Correct+"/6 • Nộp lúc "+lastResult.submittedAt;
+  navigator.clipboard.writeText(t).then(()=>alert("Đã sao chép kết quả!")).catch(()=>{prompt("Sao chép kết quả:",t);});
+}
+</script>
+</body>
+</html>
